@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+    before_action :authenticate_user!, except: [:index, :show]
 
     def home
     end
@@ -17,7 +18,7 @@ class CoursesController < ApplicationController
 
     def create 
         @course = Course.new params.require(:course).permit(:title, :category, :description, :seats, :start_date, :end_date, :time)
-
+        @course.user = current_user
         if @course.save
             flash[:notice] = "Course created successfully!"
             redirect_to course_path(@course.id)
