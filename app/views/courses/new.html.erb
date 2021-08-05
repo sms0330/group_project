@@ -1,42 +1,31 @@
-<%= form_for @courses do |course| %>
-
-    <div> 
-        <%= course.label :name %>
-        <%= course.text_field :name %>
-    </div> 
-
-    <div> 
+<%= form_for @course do |course| %>
+    <div>
+        <%= course.label :title %>
+        <%= course.text_field :title %>
+    </div>
+    <div>
         <%= course.label :category %>
         <%= course.text_field :category %>
     </div>
-
-    <div> 
-        <%= course.label :description &>
+    <div>
+        <%= course.label :description %>
         <%= course.text_field :description %>
     </div>
-
-    <div> 
+    <div>
         <%= course.label :seats %>
         <%= course.text_field :seats %>
-    </div> 
-
+    </div>
     <div>
         <%= course.label :start_date %>
-        <%= course.text_field :start_date %>
-    </div> 
-
-    <div> 
+        <%= course.date_field :start_date %>
+    </div>
+    <div>
         <%= course.label :end_date %>
-        <%= course.text_field :end_date %>
-    </div> 
-
-    <div> 
+        <%= course.date_field :end_date %>
+    </div>
+    <div>
         <%= course.label :time %>
-        <%= course.text_field :time %>
-    </div> 
-
+        <%= course.time_field :time %>
+    </div>
     <%= course.submit %>
-
     <% end %>
-
-
