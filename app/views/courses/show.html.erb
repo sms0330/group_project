@@ -26,9 +26,15 @@
     <div> 
     <small> Timing of the Class <%= @course.time %> </small>
     </div>
-
+    <div>
+        created_by: <%= @course.user&.full_name || "Deleted" %>
+    </div>
     <div> 
     <small> Teacher info: </small>
     </div>
-    <%= link_to 'Edit', edit_course_path(@course) %>
-    <%= link_to 'Delete', course_path(@course), method: :delete, data: { confirm: "Are you sure?" } %>
+    <% if can? :crud, @course %>
+        <%= link_to "Edit", edit_course_path(@course), class: "btn btn-outline-primary" %>
+    <% end %>
+    <% if can? :crud, @course %>
+        <%= link_to "Delete", course_path(@course.id), class: "btn btn-outline-primary", method: :delete, data: {confirm: "Are you sure you want to delete the course?"}%>
+    <% end %>
