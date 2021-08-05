@@ -8,41 +8,44 @@ class CoursesController < ApplicationController
     end
 
     def show
-        @courses = Course.find params[:id]
+        @course = Course.find params[:id]
     end
 
     def new
-        @courses = Course.new
+        @course = Course.new
     end
 
     def create 
-        @courses = Course.new params.require(:course).permit(:name, :category, :description, :seats, :start_date, :end_date, :time)
+        @course = Course.new params.require(:course).permit(:title, :category, :description, :seats, :start_date, :end_date, :time)
 
-        if @courses.save
-            flash[:notice] = 'Course created successfully!'
+        if @course.save
+            flash[:notice] = "Course created successfully!"
+            redirect_to course_path(@course.id)
         else
-            flash[:notice] = 'Error!'
+            render :new
         end
     end
 
     def edit
-        @courses = Course.find params[:id]
+        @course = Course.find params[:id]
     end
 
     def update
-        @courses = Course.find params[:id]
+        @course = Course.find params[:id]
 
-        if @courses.update params.require(:course).permit(:name, :category, :description, :seats, :start_date, :end_date, :time)
+        if @course.update params.require(:course).permit(:title, :category, :description, :seats, :start_date, :end_date, :time)
             flash[:notice] = 'Course has been updated!'
+            redirect_to course_path(@course.id)
         else
             flash[:notice] = 'Error!'
         end
     end
 
     def destroy
-        @courses = Course.find params[:id]
-        @courses.destroy
+        @course = Course.find params[:id]
+        @course.destroy
         flash[:notice] = 'Course has been deleted'
+        redirect_to courses_path
     end
 
 end

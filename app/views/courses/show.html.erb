@@ -1,6 +1,6 @@
 
     <div>
-        <h2> <%= course.name %> </h2>
+        <h2> <%= @course.title %> </h2>
     </div>
 
     <div>
@@ -8,7 +8,7 @@
     </div>
 
     <div>
-        <p> About: <%= course.description %> </p>
+        <p> About: <%= @course.description %> </p>
     </div>
 
     <div>
@@ -16,19 +16,19 @@
     </div>
 
     <div>
-        <p> Seats available: <%= course.seats %> </p>
+        <p> Seats available: <%= @course.seats %> </p>
     </div>
 
     <div> 
-        <small> <%= course.start_date %> - <%= course.end_date %> </small>
+        <small> <%= @course.start_date %> - <%= @course.end_date %> </small>
     </div>
 
     <div> 
-    <small> Timing of the Class <%= course.time %> </small>
+    <small> Timing of the Class <%= @course.time %> </small>
     </div>
 
     <div> 
     <small> Teacher info: </small>
     </div>
-
-    <% end %>
+    <%= link_to 'Edit', edit_course_path(@course) %>
+    <%= link_to 'Delete', course_path(@course), method: :delete, data: { confirm: "Are you sure?" } %>
