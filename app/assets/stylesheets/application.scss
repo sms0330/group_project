@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+ $primary: #899eff;
+ $secondary: #545454;
+
+ @import "bootstrap";
+ @import "main";

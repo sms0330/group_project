@@ -1,0 +1,22 @@
+body {
+    font-family: 'Open Sans', sans-serif !important;
+  }
+
+.navbar-custom {
+    background-color: #899eff;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: white;
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #c2c2c2;
+}
