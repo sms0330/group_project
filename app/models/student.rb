@@ -1,6 +1,8 @@
 class Student < ApplicationRecord
-    has_many :courses, dependent: :nullify
     has_many :teachers, dependent: :nullify
+
+    has_many :courses, dependent: :destroy
+    has_many :coursed_teachers, through: :courses, source: :teacher
 
     validates :email, presence: true, uniqueness: { case_sensitive: false }
     validates :first_name, presence: true

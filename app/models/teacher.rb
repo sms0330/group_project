@@ -1,6 +1,11 @@
 class Teacher < ApplicationRecord
-    has_many :courses, dependent: :nullify
-    has_many :students, dependent: :nullify
+    # many to many
+    belongs_to :student
+
+    has_many :courses, dependent: :destroy
+    has_many :students, through: :courses
+
+    # one to many
     has_many :facilities, dependent: :nullify
 
     validates :email, presence: true, uniqueness: { case_sensitive: false }
