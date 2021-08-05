@@ -1,5 +1,5 @@
 class Student < ApplicationRecord
-    
+
     has_many :teachers, dependent: :nullify
 
     has_many :courses, dependent: :destroy
@@ -12,4 +12,6 @@ class Student < ApplicationRecord
     def full_name
         "#{first_name} #{last_name}".strip.titlecase
     end
+
 end
+
