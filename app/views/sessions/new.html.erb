@@ -1,16 +1,37 @@
-<h1>Sign In</h1>
+<h1 style="text-align: center;">Sign In</h1>
 
 <%= form_with url:session_path, local: true do |f| %>
       <!-- Things to notice: we are using 'url:' instead of 'model:' because 
       sessions controller does not have any underlying model to store data in our db -->
       
-      <div>
-            <%= f.label :email %>
-            <%= f.email_field :email %>
-      </div>
-      <div>
-            <%= f.label :password %>
-            <%= f.password_field :password %>
-      </div>
-      <%= f.submit "Sign In" %>
-<% end %>
+      <div class="teacher-student-signin">
+
+            <div class="teacher-signin">
+              <h2>Teacher</h2>
+              <%= label_tag :email %> <br>
+              <%= email_field_tag :email %> <br> <br>
+            
+              <%= label_tag :password %> <br>
+              <%= password_field_tag :password %> <br> <br>
+            
+              <%= submit_tag "Log In", :class => "btn btn-danger" %>
+            </div>
+          
+          
+            <div class="student-signin">
+              <h2>Student</h2>
+              <%= label_tag :email %> <br>
+              <%= email_field_tag :email %> <br> <br>
+          
+              <%= label_tag :password %> <br>
+              <%= password_field_tag :password %> <br> <br>
+          
+              <%= submit_tag "Log in", :class => "btn btn-danger" %>
+            </div>
+          
+          </div>
+            <% end %>
+
+
+
+
