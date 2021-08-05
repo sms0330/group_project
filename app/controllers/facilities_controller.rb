@@ -5,17 +5,17 @@ class FacilitiesController < ApplicationController
     end
 
     def show
-        @facilities = Facility.find params[:id]
+        @facility = Facility.find params[:id]
     end
 
     def new
-        @facilities = Facility.new 
+        @facility = Facility.new 
     end
 
     def create
-        @facilities = Facility.new params.require(:facility).permit(:name, :description)
+        @facility = Facility.new params.require(:facility).permit(:name, :description)
 
-        if @facilities.save
+        if @facility.save
             flash[:notice] = 'Facility created!'
             redirect_to facilities_path
         else
@@ -25,24 +25,24 @@ class FacilitiesController < ApplicationController
     end
 
     def edit 
-        @facilities = Facility.find params[:id]
+        @facility = Facility.find params[:id]
     end
 
     def update
-        @facilities = Facility.find params[:id]
+        @facility = Facility.find params[:id]
 
-        if @facilities.update params.require(:facility).permit(:name, :description)
+        if @facility.update params.require(:facility).permit(:name, :description)
             flash[:notice] = 'Facility updated!'
-            redirect_to facility_path(@facilities)
+            redirect_to facility_path(@facility)
         else
             flash[:notice] = 'Error!'
-            redirect_to edit_facility_path(@facilities)
+            redirect_to edit_facility_path(@facility)
         end
     end
 
     def destroy 
-        @facilities = Facility.find params[:id]
-        @facilities.destroy
+        @facility = Facility.find params[:id]
+        @facility.destroy
         flash[:notice] = 'Facility deleted!'
         redirect_to facilities_path
     end
