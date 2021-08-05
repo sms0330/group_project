@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_05_010118) do
+ActiveRecord::Schema.define(version: 2021_08_05_164057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,10 +25,6 @@ ActiveRecord::Schema.define(version: 2021_08_05_010118) do
     t.datetime "time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "teacher_id", null: false
-    t.bigint "student_id", null: false
-    t.index ["student_id"], name: "index_courses_on_student_id"
-    t.index ["teacher_id"], name: "index_courses_on_teacher_id"
   end
 
   create_table "facilities", force: :cascade do |t|
@@ -36,46 +32,18 @@ ActiveRecord::Schema.define(version: 2021_08_05_010118) do
     t.boolean "book"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "teacher_id", null: false
-    t.index ["teacher_id"], name: "index_facilities_on_teacher_id"
   end
 
-  create_table "students", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "email"
     t.string "password_digest"
+    t.boolean "is_teacher"
+    t.boolean "is_student"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "teacher_id", null: false
-    t.bigint "course_id", null: false
-    t.index ["course_id"], name: "index_students_on_course_id"
-    t.index ["email"], name: "index_students_on_email"
-    t.index ["teacher_id"], name: "index_students_on_teacher_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  create_table "teachers", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "course_id", null: false
-    t.bigint "student_id", null: false
-    t.bigint "facility_id", null: false
-    t.index ["course_id"], name: "index_teachers_on_course_id"
-    t.index ["email"], name: "index_teachers_on_email"
-    t.index ["facility_id"], name: "index_teachers_on_facility_id"
-    t.index ["student_id"], name: "index_teachers_on_student_id"
-  end
-
-  add_foreign_key "courses", "students"
-  add_foreign_key "courses", "teachers"
-  add_foreign_key "facilities", "teachers"
-  add_foreign_key "students", "courses"
-  add_foreign_key "students", "teachers"
-  add_foreign_key "teachers", "courses"
-  add_foreign_key "teachers", "facilities"
-  add_foreign_key "teachers", "students"
 end
