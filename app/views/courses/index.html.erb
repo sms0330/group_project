@@ -3,11 +3,7 @@
 <% @courses.each do |course| %>
 
     <div>
-        <h2> <%= course.title %> </h2> 
-        <%= link_to "edit", edit_course_path(course) %>
-        <%= link_to "delete", course_path(course),
-            method: :delete,
-            data: { confirm: 'Are you sure?' } %>
+        <h2> <%= link_to course.title, course_path(course) %> </h2> 
     </div>
     <hr>
 

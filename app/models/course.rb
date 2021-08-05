@@ -1,5 +1,8 @@
 class Course < ApplicationRecord
+
+       validates :title, presence: true, uniqueness: true
+
        # # Association with USER MODEL
-       # belongs_to :teacher
-       # belongs_to :student
+
+       belongs_to :user, optional: true
 end
