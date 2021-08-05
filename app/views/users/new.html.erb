@@ -1,4 +1,6 @@
-<h1> sign up </h1>
+<h1 style="text-align: center;"> Sign Up </h1>
+
+<div class="signup-div">
 <%= form_with model:@user, local: true do |f| %>
       <% if @user.errors.any? %>
       <p>
@@ -7,24 +9,25 @@
       <% end %>
 
 <div>
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
+      <%= f.label :first_name %> <br>
+      <%= f.text_field :first_name %> <br> <br>
 </div>
 <div>
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
+      <%= f.label :last_name %> <br>
+      <%= f.text_field :last_name %> <br> <br>
 </div>
 <div>
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+      <%= f.label :email %> <br>
+      <%= f.text_field :email %> <br> <br>
 </div>
 <div>
-      <%= f.label :password %>
-      <%= f.text_field :password %>
+      <%= f.label :password %> <br>
+      <%= f.password_field :password %> <br> <br>
 </div>
 <div>
-      <%= f.label :password_confirmation %>
-      <%= f.text_field :password_confirmation %>
+      <%= f.label :password_confirmation %> <br> 
+      <%= f.password_field :password_confirmation %> <br> <br>
 </div>
-<%= f.submit "Sign up" %>
+<%= f.submit "Sign up", :class => "btn btn-danger" %>
 <% end %>
+</div>

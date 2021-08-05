@@ -1,0 +1,15 @@
+
+<div>
+    <h2> <%= @facilities.name %> </h2>
+</div>
+
+<div>
+    <p> About: <%= @facilities.description %> </p>
+</div>
+
+<div> 
+<small> Booked: <%= @facilities.book %> </small>
+</div>
+
+<%= link_to 'Edit', edit_facility_path %>
+<%= link_to 'Delete', facility_path(@facilities), method: :delete, data: { confirm: "Are you sure?" } %>
