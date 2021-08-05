@@ -33,10 +33,12 @@
             <%= button_to 'Logout', session_path, method: :delete, data:{confirm: 'Are you sure you want to logout?'}%>
             <% else %>
               <li class="nav-item">
-                <a class="nav-link" href="/users/new">Sign Up</a>
+                <!-- <a class="nav-link" href="/users/new">Sign Up</a> -->
+                <span style="padding: 0px 5px 0px 0px;"><%= link_to "Sign Up", "/users/new", :class => "btn btn-danger" %></span>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/session/new">Sign In</a>
+                <!-- <a class="nav-link" href="/session/new">Sign In</a> -->
+                <%= link_to "Sign In", "/session/new", :class => "btn btn-danger" %>
               </li>
             <% end %>
             </ul>
