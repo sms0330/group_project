@@ -1,0 +1,12 @@
+<%= form_for @facilities do |facility| %>
+    <div>
+        <%= facility.label :name %>
+        <%= facility.text_field :name %>
+    </div>
+    <div>
+        <%= facility.label :description %>
+        <%= facility.text_field :description %>
+    </div>
+    
+    <%= facility.submit %>
+    <% end %>
