@@ -2,19 +2,34 @@
 <div class="facilities-edit-page">
     <div class="facilities-edit-info-page">
 <%= form_for @facility do |facility| %>
-    
-        <%= facility.label :name %> <br>
-        <%= facility.text_field :name %> <br> <br>
-    
-    
-        <%= facility.label :description %> <br> 
-        <%= facility.text_area :description %> <br> <br>
-    
-        <%= facility.label :book%> 
-        <%= facility.check_box :book %>
-    
-    
-    <%= facility.submit "Update Facility", :class => "btn btn-danger"%>
+    <% if current_user && current_user.is_admin %>
+        <div>
+            <%= facility.label :name %>
+            <%= facility.text_field :name %>
+        </div>
+        <div>
+            <%= facility.label :description %>
+            <%= facility.text_field :description %>
+        </div>
+            <%= facility.label :book%>
+            <%= facility.check_box :book %>
+        </div>
     <% end %>
+    <% if current_user && current_user.is_teacher %>
+        <div>
+            <%= facility.label :name %>
+            <%= facility.text_field :name, :readonly => true%>
+        </div>
+        <div>
+            <%= facility.label :description %>
+            <%= facility.text_field :description, :readonly => true %>
+        </div>
+        <div>
+            <%= facility.label :book%>
+            <%= facility.check_box :book %>
+        </div>
+    <% end %>  
+    <%= facility.submit "Update Facility", :class => "btn btn-danger"%>
+<% end %>
 </div>
 </div>
