@@ -1,11 +1,11 @@
 <% if current_user.is_teacher %>
-    <%= link_to "New course", new_course_path %>
+    <%= link_to "New course", new_course_path, :class => "btn btn-danger new-course-btn" %>
 <% end %>
 <hr style="color: white">
 <% @courses.each do |course| %>
 
-    <div>
-        <h2> <%= link_to course.title, course_path(course) %> </h2> 
+    <div class="courses-index">
+        <h2> <%= link_to course.name, course_path(course) %> </h2> 
     </div>
     <hr>
 
