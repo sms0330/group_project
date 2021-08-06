@@ -15,6 +15,7 @@
         <small>
         <% if current_user && !current_user.is_teacher %>
             <% if @enroll.present? %>
+
                 <%= button_to 'Enrolled', enroll_path(@enroll), method: :delete, :class => "btn btn-danger" %>
             <% else %> 
                 <%= button_to 'Enroll', course_enrolls_path(course), method: :post, :class => "btn btn-danger" %>
