@@ -1,6 +1,6 @@
 <div class="container" style="padding-top:15px">
 <% if current_user && current_user.is_admin %>
-    <%= link_to "New facility", new_facility_path %>
+    <%= link_to "New facility", new_facility_path, :class => "btn btn-danger new-facility-btn" %>
 <% end %>
 
 <% @facilities.each do |facility| %>

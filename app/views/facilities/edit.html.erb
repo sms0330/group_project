@@ -1,15 +1,20 @@
+<h1 style="text-align: center;">Edit Facility</h1>
+<div class="facilities-edit-page">
+    <div class="facilities-edit-info-page">
 <%= form_for @facility do |facility| %>
-    <div>
-        <%= facility.label :name %>
-        <%= facility.text_field :name %>
-    </div>
-    <div>
-        <%= facility.label :description %>
-        <%= facility.text_field :description %>
-    </div>
-        <%= facility.label :book%>
-        <%= facility.check_box :book %>
-    </div>
     
-    <%= facility.submit %>
+        <%= facility.label :name %> <br>
+        <%= facility.text_field :name %> <br> <br>
+    
+    
+        <%= facility.label :description %> <br> 
+        <%= facility.text_area :description %> <br> <br>
+    
+        <%= facility.label :book%> 
+        <%= facility.check_box :book %>
+    
+    
+    <%= facility.submit "Update Facility", :class => "btn btn-danger"%>
     <% end %>
+</div>
+</div>
