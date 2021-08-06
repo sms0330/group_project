@@ -1,8 +1,7 @@
-<% @facilities.each do |facility| %>
+<%= @facilities.each do |facility| %>
 
     <div>
-    <h2> <%= link_to facility.name, facility_path(facility) %> </h2> 
-
+    <h2> <%= link_to facility.name, facilities_path(facility) %> </h2> 
     </div>
     <hr>
 
