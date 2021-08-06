@@ -1,7 +1,7 @@
 class FacilitiesController < ApplicationController
 
     def index
-        @facilities = Facility.all
+         @facilities = Facility.all
     end
 
     def show
