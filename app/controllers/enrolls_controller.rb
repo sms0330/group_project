@@ -4,10 +4,10 @@ class EnrollsController < ApplicationController
             @enroll = Enroll.new(course: @course, user: current_user)
             if @enroll.save
                   flash[:notice] = "Enrolled in Course"
+                  redirect_to courses_path
             else
                   flash[:alert] = @enroll.errors.full_messages.join(',')
             end
-            redirect_to request.referrer
       end
 
       def destroy
