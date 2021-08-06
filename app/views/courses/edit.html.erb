@@ -1,40 +1,33 @@
+<h1 style="text-align: center;">Edit the course</h1>
+
 <%= form_for @course do |course| %>
 
-    <div> 
-        <%= course.label :name %>
-        <%= course.text_field :name %>
-    </div> 
+    <div class="courses-edit-page"> 
+        <div class="courses-edit-info-page">
+        <%= course.label :name %> <br>
+        <%= course.text_field :name %> <br> <br>
 
-    <div> 
-        <%= course.label :category %>
-        <%= course.text_field :category %>
-    </div>
+        <%= course.label :category %> <br>
+        <%= course.text_field :category %> <br> <br>
+    
+        <%= course.label :description %> <br>
+        <%= course.text_field :description %> <br> <br>
+    
+        <%= course.label :seats %> <br>
+        <%= course.text_field :seats %> <br> <br>
+    
+        <%= course.label :start_date %> <br> 
+        <%= course.text_field :start_date %> <br> <br>
+    
+        <%= course.label :end_date %> <br>
+        <%= course.text_field :end_date %> <br> <br>
+    
+        <%= course.label :time %> <br>
+        <%= course.text_field :time %> <br> <br>
+    
 
-    <div> 
-        <%= course.label :description %>
-        <%= course.text_field :description %>
-    </div>
-
-    <div> 
-        <%= course.label :seats %>
-        <%= course.text_field :seats %>
-    </div> 
-
-    <div>
-        <%= course.label :start_date %>
-        <%= course.text_field :start_date %>
-    </div> 
-
-    <div> 
-        <%= course.label :end_date %>
-        <%= course.text_field :end_date %>
-    </div> 
-
-    <div> 
-        <%= course.label :time %>
-        <%= course.text_field :time %>
-    </div> 
-
-    <%= course.submit %>
+    <%= course.submit "Update Course", :class => "btn btn-danger"%>
 
     <% end %>
+</div>
+</div>

@@ -1,15 +1,15 @@
+<div class="facilities-show-page">
+    <div class="facilities-show-info">
+        <h2 style="text-align: center;"><b><%= @facility.name %></b></h2>
+        <hr>
 
-<div>
-    <h2> <%= @facility.name %> </h2>
+        <p> About: <%= @facility.description %></p>
+        <hr>
+
+        <small> Booked: <%= @facility.book %> </small> <br>
+        <hr>
+
+        <%= link_to 'Edit' , edit_facility_path, :class => "btn btn-danger" %>
+            <%= link_to 'Delete' , facility_path(@facility), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-danger" %>
+    </div>
 </div>
-
-<div>
-    <p> About: <%= @facility.description %> </p>
-</div>
-
-<div> 
-<small> Booked: <%= @facility.book %> </small>
-</div>
-
-<%= link_to 'Edit', edit_facility_path %>
-<%= link_to 'Delete', facility_path(@facility), method: :delete, data: { confirm: "Are you sure?" } %>
