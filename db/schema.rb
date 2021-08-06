@@ -1,9 +1,5 @@
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2021_08_05_194314) do
-=======
 ActiveRecord::Schema.define(version: 2021_08_05_232627) do
->>>>>>> 23d8b1c47d59ce23b609c723bfa79bef76e25b78
 
   enable_extension "plpgsql"
 
