@@ -57,3 +57,49 @@ body {
 .radio-btn-signup {
     padding: 10px;
 }
+
+.facilities-new-div {
+    display: flex;
+    justify-content: center;
+}
+
+.facilities-new-text-fields {
+    padding: 10px;
+    border: 5px solid grey;
+    margin: 10px;
+    width: 20%;
+    border-radius: 5px;
+}
+
+.courses-new-text-fields {
+    padding: 10px;
+    border: 5px solid grey;
+    margin: 10px;
+    width: 20%;
+    border-radius: 5px;
+}
+
+.courses-new-div {
+    display: flex;
+    justify-content: center;
+}
+
+.new-course-btn {
+    margin: 10px;
+}
+
+.courses-index {
+    margin: 10px;
+}
+
+.courses-show-div {
+    display: flex;
+    justify-content: center;
+}
+
+.courses-show-info {
+    padding: 10px;
+    margin: 10px;
+    width: 20%;
+    border-radius: 5px;
+}

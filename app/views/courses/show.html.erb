@@ -1,40 +1,39 @@
+    <div class="courses-show-div">
+        <div class="courses-show-info">
+            
+            <h2 style="text-transform: capitalize;"><b><%= @course.name %></b></h2>
+            <hr>
+            
+    
+            <h3> Course code: </h3>
+    
+            <p> About: <%= @course.description %></p>
+            <hr>
+            
+    
+            <p> Number of People Enrolled: </p>
+            <p> Seats available: <b><%= @course.seats %></b></p>
+            <hr>
+            
+    
+            <small> Timing of the Class:</small> <br>
+            <b><%= @course.time %></b> <br>
+            <hr>
 
-    <div>
-        <h2> <%= @course.name %> </h2>
+            <small> Course start and end date:</small> <br>
+            <b><%= @course.start_date %> - <%= @course.end_date %></b> <br>
+            <hr>
+    
+            Created by: <b><%= @course.user&.full_name || "Deleted" %></b> <br>
+            <small> Teacher info: </small> <br>
+            <hr>
+    
+                <% if can? :crud, @course %>
+                    <%= link_to "Edit" , edit_course_path(@course), class: "btn btn-outline-primary" %>
+                        <% end %>
+                            <% if can? :crud, @course %>
+                                <%= link_to "Delete" , course_path(@course.id), class: "btn btn-outline-primary" , method:
+                                    :delete, data: {confirm: "Are you sure you want to delete the course?" }%>
+                                    <% end %>
+        </div>
     </div>
-
-    <div>
-        <h3> Course code:  </h3>
-    </div>
-
-    <div>
-        <p> About: <%= @course.description %> </p>
-    </div>
-
-    <div>
-    <p> Number of People Enrolled:  </p>
-    </div>
-
-    <div>
-        <p> Seats available: <%= @course.seats %> </p>
-    </div>
-
-    <div> 
-        <small> <%= @course.start_date %> - <%= @course.end_date %> </small>
-    </div>
-
-    <div> 
-    <small> Timing of the Class <%= @course.time %> </small>
-    </div>
-    <div>
-        created_by: <%= @course.user&.full_name || "Deleted" %>
-    </div>
-    <div> 
-    <small> Teacher info: </small>
-    </div>
-    <% if can? :crud, @course %>
-        <%= link_to "Edit", edit_course_path(@course), class: "btn btn-outline-primary" %>
-    <% end %>
-    <% if can? :crud, @course %>
-        <%= link_to "Delete", course_path(@course.id), class: "btn btn-outline-primary", method: :delete, data: {confirm: "Are you sure you want to delete the course?"}%>
-    <% end %>
