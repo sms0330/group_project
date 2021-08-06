@@ -1,6 +1,7 @@
-<% if current_user.is_teacher %>
+<% if current_user && current_user.is_teacher %>
     <%= link_to "New course", new_course_path %>
 <% end %>
+
 <hr style="color: white">
 <% @courses.each do |course| %>
 
@@ -10,7 +11,7 @@
     <div>
         <% @enroll = course.enrolls.find_by(user: current_user) %>
         <small>
-        <% if current_user.is_teacher == false %>
+        <% if current_user && current_user.is_teacher == false %>
             <% if @enroll.present? %>
                 <%= button_to 'Enrolled', enroll_path(@enroll), method: :delete %>
             <% else %> 

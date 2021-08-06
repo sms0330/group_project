@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
       has_many :courses, dependent: :destroy
-      has_many :facilities, dependent: :nullify
+      has_many :facilities, dependent: :destroy
 
       has_secure_password
 
