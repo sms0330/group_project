@@ -4,7 +4,9 @@
 <hr style="color: white">
 <% @courses.each do |course| %>
 
-    <h2> <%= link_to course.name, course_path(course) %> </h2> 
+    <div class="courses-index">
+        <h2> <%= link_to course.name, course_path(course) %> </h2> 
+    </div>
     <hr>
 
 <% end %>
