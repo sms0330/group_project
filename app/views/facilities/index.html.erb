@@ -1,8 +1,8 @@
-<% if current_user.is_admin %>
+<% if current_user && current_user.is_admin %>
     <%= link_to "New facility", new_facility_path %>
 <% end %>
 
-<hr style="color: white">
+<hr style="color: rgb(110, 95, 95)">
 <% @facilities.each do |facility| %>
 
 

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
     root to: "courses#home"
 
-    resources :courses
+    resources :courses do
+        resources :enrolls, shallow: true, only: [:create, :destroy]
+    end
 
     resources :facilities
 

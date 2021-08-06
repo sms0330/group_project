@@ -1,31 +1,29 @@
+<h1 style="text-align: center;"><b>Create a course</b></h1>
 <%= form_for @course do |c| %>
-    <div>
-        <%= c.label :name %>
-        <%= c.text_field :name %>
-    </div>
-    <div>
-        <%= c.label :category %>
-        <%= c.text_field :category %>
-    </div>
-    <div>
-        <%= c.label :description %>
-        <%= c.text_field :description %>
-    </div>
-    <div>
-        <%= c.label :seats %>
-        <%= c.text_field :seats %>
-    </div>
-    <div>
-        <%= c.label :start_date %>
-        <%= c.date_field :start_date %>
-    </div>
-    <div>
-        <%= c.label :end_date %>
-        <%= c.date_field :end_date %>
-    </div>
-    <div>
+<div class="courses-new-div">
+    <div class="courses-new-text-fields">
+        <%= c.label :name %> <br>
+        <%= c.text_field :name %> <br> <br>
+    
+        <%= c.label :category %> <br>
+        <%= c.text_field :category %> <br> <br>
+    
+        <%= c.label :description %> <br> 
+        <%= c.text_field :description %> <br> <br>
+    
+        <%= c.label :seats %> <br>
+        <%= c.text_field :seats %> <br>
+    
+        <%= c.label :start_date %> <br>
+        <%= c.date_field :start_date %> <br>
+    
+        <%= c.label :end_date %> <br>
+        <%= c.date_field :end_date %> <br> <br>
+
         <%= c.label :time %>
-        <%= c.time_field :time %>
-    </div>
-    <%= c.submit %>
+        <%= c.time_field :time %> <br> <br>
+    
+    <%= c.submit "Create Course", :class => "btn btn-danger" %>
     <% end %>
+</div>
+</div>

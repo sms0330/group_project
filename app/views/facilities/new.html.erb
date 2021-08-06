@@ -1,15 +1,20 @@
+<h1 style="text-align: center;"><b>Create a facility</b></h1>
 <%= form_for @facilities do |facility| %>
-    <div>
-        <%= facility.label :name %>
-        <%= facility.text_field :name %>
-    </div>
-    <div>
-        <%= facility.label :description%>
-        <%= facility.text_field :description %>
-    </div>
-        <%= facility.label :book%>
+<div class="facilities-new-div">
+
+    <div class="facilities-new-text-fields">
+        <%= facility.label :name %> <br>
+        <%= facility.text_field :name %> <br> <br>
+
+        <%= facility.label :description%> <br>
+        <%= facility.text_field :description %> <br> <br>
+    
+        <%= facility.label :book%> 
         <%= facility.check_box :book %>
+        <%= facility.submit "Create Facility", :class => "btn btn-danger" %>
     </div>
     
-    <%= facility.submit %>
+    
 <% end %>
+
+</div>
