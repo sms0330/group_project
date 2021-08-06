@@ -7,7 +7,6 @@
       <div class="teacher-student-signin">
 
             <div class="teacher-signin">
-              <h2>Teacher</h2>
               <%= label_tag :email %> <br>
               <%= email_field_tag :email %> <br> <br>
             
@@ -16,19 +15,7 @@
             
               <%= submit_tag "Log In", :class => "btn btn-danger" %>
             </div>
-          
-          
-            <div class="student-signin">
-              <h2>Student</h2>
-              <%= label_tag :email %> <br>
-              <%= email_field_tag :email %> <br> <br>
-          
-              <%= label_tag :password %> <br>
-              <%= password_field_tag :password %> <br> <br>
-          
-              <%= submit_tag "Log in", :class => "btn btn-danger" %>
-            </div>
-          
+    
           </div>
             <% end %>
 
