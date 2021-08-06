@@ -46,6 +46,10 @@ class CoursesController < ApplicationController
         redirect_to courses_path
     end
 
+    def enrolled
+        @course = find_course_id.courses.select! { |s| s.user_id == current_user.id } unless admin?
+    end
+
     private
 
     def course_params

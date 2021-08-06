@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2021_08_06_144342) do
     t.boolean "book"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.string "description"
     t.index ["user_id"], name: "index_facilities_on_user_id"
   end
