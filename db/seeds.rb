@@ -36,7 +36,7 @@ users=User.all
 100.times do
     created_at = Faker::Date.backward(days:365 * 5)
     Course.create(
-        title: Faker::Educator.subject,
+        name: Faker::Educator.subject,
         category: Faker::Educator.course_name,
         description: Faker::ChuckNorris.fact,
         seats: Faker::Number.number(digits: 2),
