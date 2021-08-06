@@ -35,5 +35,7 @@
                                 <%= link_to "Delete" , course_path(@course.id), class: "btn btn-outline-primary" , method:
                                     :delete, data: {confirm: "Are you sure you want to delete the course?" }%>
                                     <% end %>
+                                    
+                 <%= link_to 'Enroll', course_enrolls_path(@course, user_id: current_user.id), method: :post %> 
         </div>
-    </div>
+    </div> 
