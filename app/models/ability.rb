@@ -22,9 +22,5 @@ class Ability
     can(:destroy, Enroll) do |enroll|
       enroll.user == user
     end
-
-    can(:read, :update, Facility) do |facility|
-      user==facility.user
-    end
   end
 end
