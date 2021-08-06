@@ -5,6 +5,9 @@ class User < ApplicationRecord
 
       has_secure_password
 
+      has_many :enrolls, dependent: :destroy
+      has_many :enrolled_courses, through: :enrolls, source: :course
+
       validates :first_name, presence: true
       validates :last_name, presence: true
 
