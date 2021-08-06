@@ -13,7 +13,7 @@
     
         <% @enroll = course.enrolls.find_by(user: current_user) %>
         <small>
-        <% if current_user && current_user.is_teacher %>
+        <% if current_user && !current_user.is_teacher %>
             <% if @enroll.present? %>
                 <%= button_to 'Enrolled', enroll_path(@enroll), method: :delete, :class => "btn btn-danger" %>
             <% else %> 
