@@ -1,3 +1,4 @@
+<div class="container" style="padding-top:15px">
 <% if current_user && current_user.is_teacher %>
     <%= link_to "New course", new_course_path, :class => "btn btn-danger new-course-btn" %>
 <% end %>
@@ -6,9 +7,9 @@
 <% @courses.each do |course| %>
 
     <div class="courses-index">
-    <div>
-        <h2> <%= link_to course.name, course_path(course) %> </h2> 
-    </div>
+        <div style="padding:15px">
+            <h2> <%= link_to course.name, course_path(course) %> </h2> 
+        </div>
     
         <% @enroll = course.enrolls.find_by(user: current_user) %>
         <small>
@@ -22,4 +23,5 @@
         </small>
         <hr>
 <% end %>
+    </div>
 </div>
