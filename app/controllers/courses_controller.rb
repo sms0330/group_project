@@ -11,6 +11,7 @@ class CoursesController < ApplicationController
     end
 
     def show
+        @courses = Course.all.order(:category)
     end
 
     def new

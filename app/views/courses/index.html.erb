@@ -14,9 +14,9 @@
         <small>
         <% if current_user && current_user.is_teacher == false %>
             <% if @enroll.present? %>
-                <%= button_to 'Enrolled', enroll_path(@enroll), method: :delete %>
+                <em>enrolled</em>
             <% else %> 
-                <%= button_to 'Enroll', course_enrolls_path(course), method: :post %>
+                
             <% end %>
         <% end %>
         </small>
