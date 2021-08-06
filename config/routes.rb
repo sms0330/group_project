@@ -3,9 +3,12 @@ Rails.application.routes.draw do
 
     resources :courses do
         resources :enrolls, shallow: true, only: [:create, :destroy]
+        get :enrolled, on: :collection
     end
 
     resources :facilities
+
+    # patch('/facilities/:id/book', {to: 'facilities#book', as: 'book_facility'})
 
     resources :users, only: [:new, :create]
 
