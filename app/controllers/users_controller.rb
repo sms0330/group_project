@@ -13,9 +13,19 @@ class UsersController < ApplicationController
             end
       end
 
+      def dashboard
+            if current_user.is_admin?
+              @user_number = User.all.count
+              @facility_number = Facility.all.count
+              @course_number = Course.all.count
+            else
+              redirect_to root_path, alert: "Only administrator can access it!"
+            end
+      end  
+
       private
 
       def user_params
-            params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)  
+            params.require(:user).permit(:is_teacher, :first_name, :last_name, :email, :password, :password_confirmation)  
       end
 end

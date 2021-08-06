@@ -1,4 +1,6 @@
-<%= link_to "New course", new_course_path %>
+<% if current_user.is_teacher %>
+    <%= link_to "New course", new_course_path %>
+<% end %>
 <hr style="color: white">
 <% @courses.each do |course| %>
 
