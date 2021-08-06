@@ -17,7 +17,6 @@ super_user=User.create(
     last_name: 'Snow',
     email: 'js@winterfell.gov',
     password: PASSWORD,
-    is_teacher: true,
     is_admin: true
 )
 
