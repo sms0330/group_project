@@ -46,6 +46,10 @@ class CoursesController < ApplicationController
         redirect_to courses_path
     end
 
+    def enrolled
+        @courses = current_user.enrolled_courses.order(created_at: :desc)
+    end
+
     private
 
     def course_params
