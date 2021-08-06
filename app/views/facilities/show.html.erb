@@ -9,7 +9,11 @@
         <small> Booked: <%= @facility.book %> </small> <br>
         <hr>
 
-        <%= link_to 'Edit' , edit_facility_path, :class => "btn btn-danger" %>
+        <% if can? :crud, @facility %>
+            <%= link_to 'Edit' , edit_facility_path, :class => "btn btn-danger" %>
+        <% end %>
+        <% if can? :crud, @facility %>
             <%= link_to 'Delete' , facility_path(@facility), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-danger" %>
+        <% end %>
     </div>
 </div>
