@@ -29,7 +29,7 @@
           <div class="order-3">
             <ul class="navbar-nav me-auto">
             <%if user_signed_in? %>
-            <h5 style="padding: 7px 5px 0px 0px; color: white;">Hello <%= current_user.full_name %>,</h5>
+            <h5 style="padding: 7px 5px 0px 0px; color: white;">Hello <%= current_user.is_teacher ? "Teacher #{current_user.full_name}" : current_user.full_name %>,</h5>
             <%= button_to 'Logout', session_path, method: :delete, data:{confirm: 'Are you sure you want to logout?'}, :class => "btn btn-danger"%>
             <% else %>
               <li class="nav-item">

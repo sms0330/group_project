@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
     resources :facilities
 
+    # patch('/facilities/:id/book', {to: 'facilities#book', as: 'book_facility'})
+
     resources :users, only: [:new, :create]
 
     resource :session, only: [:new, :create, :destroy]

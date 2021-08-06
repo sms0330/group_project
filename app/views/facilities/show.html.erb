@@ -10,6 +10,10 @@
 <div> 
 <small> Booked: <%= @facility.book %> </small>
 </div>
-
-<%= link_to 'Edit', edit_facility_path %>
-<%= link_to 'Delete', facility_path(@facility), method: :delete, data: { confirm: "Are you sure?" } %>
+<hr>
+<% if can? :crud, @facility %>
+    <%= link_to 'Edit', edit_facility_path %>
+<% end %>
+<% if can? :crud, @facility %>
+    <%= link_to 'Delete', facility_path(@facility), method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
