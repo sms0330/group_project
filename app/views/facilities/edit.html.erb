@@ -1,3 +1,6 @@
+<h1 style="text-align: center;">Edit Facility</h1>
+<div class="facilities-edit-page">
+    <div class="facilities-edit-info-page">
 <%= form_for @facility do |facility| %>
     <% if current_user && current_user.is_admin %>
         <div>
@@ -25,6 +28,8 @@
             <%= facility.label :book%>
             <%= facility.check_box :book %>
         </div>
-    <% end %>
-    <%= facility.submit %>
+    <% end %>  
+    <%= facility.submit "Update Facility", :class => "btn btn-danger"%>
 <% end %>
+</div>
+</div>
