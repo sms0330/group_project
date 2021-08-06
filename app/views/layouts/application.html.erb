@@ -32,8 +32,12 @@
           <div class="order-3">
             <ul class="navbar-nav me-auto">
             <%if user_signed_in? %>
-            <h5 style="padding: 7px 5px 0px 0px; color: white;">Hello <%= current_user.is_teacher ? "Teacher #{current_user.full_name}" : current_user.full_name %>,</h5>
-            <%= button_to 'Logout', session_path, method: :delete, data:{confirm: 'Are you sure you want to logout?'}, :class => "btn btn-danger"%>
+              <li class="nav-item">
+                <h5 style="padding: 7px 10px 0px 0px; color: white;">Hello, <%= current_user.is_teacher ? "Teacher #{current_user.full_name}" : current_user.full_name %></h5>
+              </li>
+              <li class="nav-item">
+              <%= button_to 'Logout', session_path, method: :delete, data:{confirm: 'Are you sure you want to logout?'}, :class => "btn btn-danger"%>
+              </li>
             <% else %>
               <li class="nav-item">
                 <!-- <a class="nav-link" href="/users/new">Sign Up</a> -->

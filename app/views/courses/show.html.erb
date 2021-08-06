@@ -28,20 +28,21 @@
             <small> Teacher info: </small> <br>
             <hr>
             <% @enroll = @course.enrolls.find_by(user: current_user) %>
-            <% if current_user && current_user.is_teacher == false %>
-                <% if @enroll.present? %>
-                    <%= button_to 'Unenroll', enroll_path(@enroll), method: :delete %>
-                <% else %> 
-                    <%= button_to 'Enroll', course_enrolls_path(@course), method: :post %>
+                <% if current_user && current_user.is_teacher == false %>
+                    <% if @enroll.present? %>
+                        <%= button_to 'Unenroll', enroll_path(@enroll), method: :delete %>
+                    <% else %> 
+                        <%= button_to 'Enroll', course_enrolls_path(@course), method: :post %>
+                    <% end %>
                 <% end %>
-            <% end %>
-    
-            <% if can? :crud, @course %>
-                <%= link_to "Edit" , edit_course_path(@course), class: "btn btn-outline-primary" %>
-            <% end %>
-            <% if can? :crud, @course %>
-                <%= link_to "Delete" , course_path(@course.id), class: "btn btn-outline-primary" , method: :delete, data: {confirm: "Are you sure you want to delete the course?" }%>
-            <% end %>
+            
+                <% if can? :crud, @course %>
+                    <%= link_to "Edit" , edit_course_path(@course), class: "btn btn-outline-primary" %>
+                        <% end %>
+                            <% if can? :crud, @course %>
+                                <%= link_to "Delete" , course_path(@course.id), class: "btn btn-outline-primary" , method:
+                                    :delete, data: {confirm: "Are you sure you want to delete the course?" }%>
+                                    <% end %>
                                     
         </div>
     </div> 

@@ -57,6 +57,7 @@ end
     created_at = Faker::Date.backward(days:365 * 5)
     Facility.create(
         name: Faker::Educator.campus,
+        description: Faker::Company.catch_phrase,
         book: [true, false].sample,
         created_at: created_at,
         updated_at: created_at,

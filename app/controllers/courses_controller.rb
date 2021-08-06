@@ -48,7 +48,7 @@ class CoursesController < ApplicationController
     end
 
     def enrolled
-        @course = find_course_id.courses.select! { |s| s.user_id == current_user.id } unless admin?
+        @course = Course.find params[:id].courses.select! { |s| s.user_id == current_user.id  unless s.user.is_admin?}
     end
 
     private
