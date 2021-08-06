@@ -16,13 +16,14 @@ ActiveRecord::Schema.define(version: 2021_08_05_232627) do
   enable_extension "plpgsql"
 
   create_table "courses", force: :cascade do |t|
-    t.string "title"
+    t.string "name"
     t.string "category"
     t.text "description"
     t.integer "seats"
     t.date "start_date"
     t.date "end_date"
     t.time "time"
+    t.string "course_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
