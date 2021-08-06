@@ -1,4 +1,4 @@
-<% if current_user.is_admin %>
+<% if current_user && current_user.is_admin %>
     <%= link_to "New facility", new_facility_path %>
 <% end %>
 
