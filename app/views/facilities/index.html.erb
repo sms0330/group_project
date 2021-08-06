@@ -1,8 +1,7 @@
-<% if current_user.is_admin %>
-    <%= link_to "New Facility", new_facility_path %>
-<% end %>
-
+<%= link_to "New facility", new_facility_path %>
+<hr style="color: white">
 <% @facilities.each do |facility| %>
+
 
     <div>
     <h2> <%= link_to facility.name, facility_path(facility) %> </h2> 

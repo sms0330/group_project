@@ -1,12 +1,15 @@
-<%= form_for @facilities do |f| %>
+<%= form_for @facilities do |facility| %>
     <div>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
+        <%= facility.label :name %>
+        <%= facility.text_field :name %>
     </div>
     <div>
-        <%= f.label :description%>
-        <%= f.text_field :description %>
+        <%= facility.label :description%>
+        <%= facility.text_field :description %>
+    </div>
+        <%= facility.label :book%>
+        <%= facility.check_box :book %>
     </div>
     
-    <%= f.submit %>
-    <% end %>
+    <%= facility.submit %>
+<% end %>
