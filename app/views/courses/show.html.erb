@@ -1,10 +1,10 @@
-
+<br/>
     <div>
-        <h2> <%= @course.name %> </h2>
+        <h1> <%= @course.name %> </h1>
     </div>
 
     <div>
-        <h3> Course code:  </h3>
+        <p> Course code: @course.course_code </p>
     </div>
 
     <div>
@@ -12,7 +12,7 @@
     </div>
 
     <div>
-    <p> Number of People Enrolled:  </p>
+    <p> Number of People Enrolled: <%= @course.enrolls.count %> </p>
     </div>
 
     <div>
@@ -20,17 +20,19 @@
     </div>
 
     <div> 
-        <small> <%= @course.start_date %> - <%= @course.end_date %> </small>
+        <p>
+            Course Starts on: <%= @course.start_date %> 
+            <br/>
+            Course Ends on: <%= @course.end_date %> 
+        </p>
     </div>
 
     <div> 
-    <small> Timing of the Class <%= @course.time %> </small>
+        <p> Timing of the Class <%= @course.time %> </p>
     </div>
-    <div>
-        created_by: <%= @course.user&.full_name || "Deleted" %>
-    </div>
+
     <div> 
-    <small> Teacher info: </small>
+        Teacher info: <%= @course.user&.full_name || "Deleted" %> 
     </div>
     <% if can? :crud, @course %>
         <%= link_to "Edit", edit_course_path(@course), class: "btn btn-outline-primary" %>

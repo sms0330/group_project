@@ -1,11 +1,24 @@
-<% if current_user.is_teacher %>
+<% if current_user && current_user.is_teacher %>
     <%= link_to "New course", new_course_path %>
 <% end %>
+
 <hr style="color: white">
 <% @courses.each do |course| %>
 
     <div>
         <h2> <%= link_to course.name, course_path(course) %> </h2> 
+    </div>
+    <div>
+        <% @enroll = course.enrolls.find_by(user: current_user) %>
+        <small>
+        <% if current_user && current_user.is_teacher == false %>
+            <% if @enroll.present? %>
+                <%= button_to 'Enrolled', enroll_path(@enroll), method: :delete %>
+            <% else %> 
+                <%= button_to 'Enroll', course_enrolls_path(course), method: :post %>
+            <% end %>
+        <% end %>
+        </small>
     </div>
     <hr>
 
