@@ -9,11 +9,19 @@ class FacilitiesController < ApplicationController
     end
 
     def new
-        @facility = Facility.new 
+        @facilities = Facility.new 
+    end
+
+    def book
+        @facilities = Facility.find params[:id]
+        @facility.update params.require(:facility).permit(:name, :book)
+        flash[:notice] = 'Facility updated!'
+        redirect_to facility_path(@facility)
+        
     end
 
     def create
-        @facility = Facility.new params.require(:facility).permit(:name, :description)
+        @facility = Facility.new params.require(:facility).permit(:name, :book ,:description)
 
         if @facility.save
             flash[:notice] = 'Facility created!'
