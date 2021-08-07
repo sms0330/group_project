@@ -3,6 +3,7 @@ class EnrollsController < ApplicationController
             @course = Course.find params[:course_id]
             @enroll = Enroll.new(course: @course, user: current_user)
             # Course.seats = Course.seats - 1
+            
             if @enroll.save
                   flash[:success] = "Enrolled in Course"
                   redirect_to courses_path

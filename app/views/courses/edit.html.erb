@@ -25,8 +25,11 @@
         <%= course.label :end_date %> <br>
         <%= course.text_field :end_date %> <br> <br>
     
-        <%= course.label :time %> <br>
-        <%= course.text_field :time %> <br> <br>
+        <%= course.label :time_start %> <br>
+        <%= course.text_field :time_start %> <br> <br>
+
+        <%= course.label :time_end %> <br>
+        <%= course.text_field :time_end %> <br> <br>
     
 
     <%= course.submit "Update Course", :class => "btn btn-danger"%>

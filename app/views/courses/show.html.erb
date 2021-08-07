@@ -19,16 +19,16 @@
             <hr>
             
     
-            <small> Timing of the Class: </small> <br>
-            <b> <%= @course.time.strftime("%H:%M%p") %> </b> <br>
+            <small> Class starts at: </small> <br>
+            <b> <%= @course.time_start.strftime("%H:%M%p") %> </b> <br>
+            <small> Class ends at: </small> <br>
+            <b> <%= @course.time_end.strftime("%H:%M%p") %> </b> <br>
             <hr>
 
             <small> Course start date :</small> <br>
-
             <b><%= @course.start_date %></b> <br>
             <small> Course end date :</small> <br>
             <b><%= @course.end_date %></b> <br>
-
             <hr>
     
             <small> Teacher info: <b><%= @course.user&.full_name || "Deleted" %></b></small> <br>
