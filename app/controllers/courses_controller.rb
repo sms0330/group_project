@@ -22,7 +22,7 @@ class CoursesController < ApplicationController
         @course = Course.new course_params
         @course.user = current_user
         if @course.save
-            flash[:notice] = "Course created successfully!"
+            flash[:success] = "Course created successfully!"
             redirect_to course_path(@course.id)
         else
             render :new
@@ -34,7 +34,7 @@ class CoursesController < ApplicationController
 
     def update
         if @course.update course_params
-            flash[:notice] = 'Course has been updated!'
+            flash[:success] = 'Course has been updated!'
             redirect_to course_path(@course.id)
         else
             render :edit
@@ -43,7 +43,7 @@ class CoursesController < ApplicationController
 
     def destroy
         @course.destroy
-        flash[:notice] = 'Course has been deleted'
+        flash[:danger] = 'Course has been deleted'
         redirect_to courses_path
     end
 

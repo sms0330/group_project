@@ -23,10 +23,10 @@ class FacilitiesController < ApplicationController
        @facility = Facility.new params.require(:facility).permit(:name, :book ,:description)
 
        if @facility.save
-           flash[:notice] = 'Facility created!'
+           flash[:success] = 'Facility created!'
            redirect_to facilities_path
        else
-           flash[:notice] = 'Error!'
+           flash[:danger] = 'Error!'
            redirect_to new_facility_path(@facilities)
        end
    end
@@ -39,10 +39,10 @@ class FacilitiesController < ApplicationController
        @facility = Facility.find params[:id]
 
        if @facility.update params.require(:facility).permit(:name, :book, :description)
-           flash[:notice] = 'Facility updated!'
+           flash[:success] = 'Facility updated!'
            redirect_to facility_path(@facility)
        else
-           flash[:notice] = 'Error!'
+           flash[:danger] = 'Error!'
            render :edit
        end
    end
@@ -50,7 +50,7 @@ class FacilitiesController < ApplicationController
    def destroy 
        @facility = Facility.find params[:id]
        @facility.destroy
-       flash[:notice] = 'Facility deleted!'
+       flash[:danger] = 'Facility deleted!'
        redirect_to facilities_path
    end
    
