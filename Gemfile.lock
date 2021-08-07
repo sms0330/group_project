@@ -184,17 +184,7 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
-<<<<<<< HEAD
-<<<<<<< HEAD
   x86_64-linux
-=======
-  x86_64-darwin-20
->>>>>>> 5ed37783ede4c0399447ddc3a44843f45e019849
-=======
-  x86_64-darwin-19
-  x86_64-darwin-20
-  x86_64-linux
->>>>>>> f07ba5ce621fb75f3ec73b4d7c7bdbfc3c7c59e7
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)

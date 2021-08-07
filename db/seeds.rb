@@ -43,7 +43,7 @@ users=User.all
         start_date: Faker::Date.between(from: 2.days.ago, to: Date.today),
         end_date: Faker::Date.between(from: '2021-09-01', to: '2021-12-25'),
         time: '09:00:00',
-        # course_code:  Faker::Number.number(digits: 3),
+        course_code:  Faker::Number.number(digits: 3),
         created_at: created_at,
         updated_at: created_at,
         user: users.sample

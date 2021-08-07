@@ -7,21 +7,22 @@
 <% @courses.each do |course| %>
 
     <div class="courses-index">
-        <div style="padding:15px">
+        <div>
             <h2> <%= link_to course.name, course_path(course) %> </h2> 
         </div>
-    
-        <% @enroll = course.enrolls.find_by(user: current_user) %>
-        <small>
-        <% if current_user && !current_user.is_teacher %>
-            <% if @enroll.present? %>
 
-                <%= button_to 'Enrolled', enroll_path(@enroll), method: :delete, :class => "btn btn-danger" %>
-            <% else %> 
-                <%= button_to 'Enroll', course_enrolls_path(course), method: :post, :class => "btn btn-danger" %>
+        <div class="enroll">
+            <% @enroll = course.enrolls.find_by(user: current_user) %>
+            <small>
+            <% if current_user && !current_user.is_teacher %>
+                <% if @enroll.present? %>
+                    <%= button_to 'Enrolled', enroll_path(@enroll), method: :delete, :class => "btn btn-danger" %>
+                <% else %> 
+                    <%= button_to 'Enroll', course_enrolls_path(course), method: :post, :class => "btn btn-danger" %>
+                <% end %>
             <% end %>
-        <% end %>
-        </small>
+            </small>
+        </div>
         <hr>
 <% end %>
     </div>
