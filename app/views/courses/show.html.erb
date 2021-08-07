@@ -29,7 +29,7 @@
             <small> Teacher info: <b><%= @course.user&.full_name || "Deleted" %></b></small> <br>
             <hr>
             <% @enroll = @course.enrolls.find_by(user: current_user) %>
-                <% if current_user && current_user.is_teacher == false %>
+                <% if current_user && current_user.is_teacher %>
                     <% if @enroll.present? %>
                         <%= button_to 'Unenroll', enroll_path(@enroll), method: :delete %>
                     <% else %> 

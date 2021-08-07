@@ -10,9 +10,11 @@
         <div>
             <h2> <%= link_to course.name, course_path(course) %> </h2> 
         </div>
+        <small>
+        <% if current_user && current_user.is_teacher %>
+            <% if @enroll.present? %>
 
         <div class="enroll">
-            <% @enroll = course.enrolls.find_by(user: current_user) %>
             <small>
             <% if current_user && !current_user.is_teacher %>
                 <% if @enroll.present? %>
