@@ -10,20 +10,22 @@
             <p> About: <%= @course.description %></p>
             <hr>
             
-    
-            <p> Number of People Enrolled: <b><%= @course.enrolls.count %> </b></p>
-            <p> Seats available: <b><%= @course.seats %></b></p>
+            
+            
+            <p> Number of People Enrolled: <b> <%= @total_enrolls %> </b> </p>
+
+            <p> Seats available: <b> <%= @course.seats %> </b></p>
             <hr>
             
     
-            <small> Timing of the Class:</small> <br>
-            <b><%= @course.time %></b> <br>
+            <small> Timing of the Class: </small> <br>
+            <b> <%= @course.time %> </b> <br>
             <hr>
 
             <small> Course start date :</small> <br>
-            <b><%= @course.start_date %></b> <br>
+            <b> <%= @course.start_date %> /b> <br>
             <small> Course start date :</small> <br>
-            <b><%= @course.end_date %></b> <br>
+            <b> <%= @course.end_date %> </b> <br>
             <hr>
     
             <small> Teacher info: <b><%= @course.user&.full_name || "Deleted" %></b></small> <br>
