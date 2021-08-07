@@ -1,35 +1,31 @@
 <h1 style="text-align: center;">Edit Facility</h1>
 <div class="facilities-edit-page">
     <div class="facilities-edit-info-page">
-<%= form_for @facility do |f| %>
-    <% if current_user && current_user.is_admin %>
-        <div>
-            <%= f.label :name %>
-            <%= f.text_field :name %>
-        </div>
-        <div>
-            <%= f.label :description %>
-            <%= f.text_field :description %>
-        </div>
-            <%= f.label :book%>
-            <%= f.check_box :book %>
-        </div>
-    <% end %>
-    <% if current_user && current_user.is_teacher %>
-        <div>
-            <%= f.label :name %>
-            <%= f.text_field :name, :readonly => true%>
-        </div>
-        <div>
-            <%= f.label :description %>
-            <%= f.text_field :description, :readonly => true %>
-        </div>
-        <div>
-            <%= f.label :book%>
-            <%= f.check_box :book %>
-        </div>
-    <% end %>  
-    <%= f.submit "Update Facility", :class => "btn btn-danger"%>
-<% end %>
-</div>
+        <%= form_for @facility do |f| %>
+            <% if current_user %>
+                <% if current_user.is_admin %>
+                    <div>
+                        <%= f.label :name %>
+                        <%= f.text_field :name %>
+                    </div> <br/>
+                    <div>
+                        <%= f.label :description %>
+                        <%= f.text_field :description %> 
+                    </div> <br/>
+                        <%= f.label :book%>
+                        <%= f.check_box :book %>
+                    </div>
+                <% elsif current_user.is_teacher %>
+                    <div>
+                        <%= f.label :book%>
+                        <%= f.check_box :book %>
+                    </div>
+                <% else %>
+                <% end %>
+            <% end %>
+            <div>
+                <%= f.submit "Update Facility", :class => "btn btn-danger"%>
+            </div>
+        <% end %>
+    </div>
 </div>

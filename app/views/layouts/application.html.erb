@@ -26,13 +26,18 @@
                 <a class="nav-link" href="/courses">Courses</a>
               </li>
               <li class="nav-item">
-                  <% if current_user && !current_user.is_teacher%>
+                  <% if current_user && !current_user.is_teacher && !current_user.is_admin%>
                     <a class="nav-link" href="/courses/enrolled">My Courses</a>
                   <% end %>
               </li>
               <li class="nav-item">
                   <% if current_user && current_user.is_teacher %>
                     <a class="nav-link" href="/courses/created">My Created Courses</a>
+                  <% end %>
+              </li>
+              <li class="nav-item">
+                  <% if current_user && current_user.is_admin %>
+                    <a class="nav-link" href="/dashboard">Admin Panel</a>
                   <% end %>
               </li>
             </ul>

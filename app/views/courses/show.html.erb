@@ -20,7 +20,7 @@
             
     
             <small> Timing of the Class: </small> <br>
-            <b> <%= @course.time %> </b> <br>
+            <b> <%= @course.time.strftime("%H:%M%p") %> </b> <br>
             <hr>
 
             <small> Course start date :</small> <br>
