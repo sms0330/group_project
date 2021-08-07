@@ -1,9 +1,13 @@
+<div class="container" style="padding-top: 15px;">
 <h1> My Courses </h1>
+<hr>
 
       <% @courses.each do |course| %>
 
             <div>
             <h2><%= link_to course.name, course_path(course) %></h2>
             </div>
-
+            <hr>
+      
       <% end %>
+</div>

@@ -43,7 +43,7 @@ class FacilitiesController < ApplicationController
            redirect_to facility_path(@facility)
        else
            flash[:notice] = 'Error!'
-           redirect_to edit_facility_path(@facility)
+           render :edit
        end
    end
 
