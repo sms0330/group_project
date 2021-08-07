@@ -51,6 +51,10 @@ class CoursesController < ApplicationController
         @courses = current_user.enrolled_courses.order(created_at: :desc)
     end
 
+    def created
+        @courses = current_user.courses
+    end
+
     private
 
     def course_params
