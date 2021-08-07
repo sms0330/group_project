@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :courses do
         resources :enrolls, shallow: true, only: [:create, :destroy]
         get :enrolled, on: :collection
+        get :created, on: :collection
     end
 
     resources :facilities
