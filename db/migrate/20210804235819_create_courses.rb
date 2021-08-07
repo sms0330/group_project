@@ -7,7 +7,8 @@ class CreateCourses < ActiveRecord::Migration[6.1]
       t.integer :seats
       t.date :start_date
       t.date :end_date
-      t.time :time
+      t.time :time_start
+      t.time :time_end
 
       t.timestamps
     end

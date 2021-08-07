@@ -25,7 +25,13 @@ class CoursesController < ApplicationController
     def create 
         @course = Course.new course_params
         @course.user = current_user
-        if @course.save
+        if @course.time_start >= @course.time_end  
+            flash[:danger] = "Input right attributes for time"
+            render :new
+        elsif @course.start_date >= @course.end_date
+            flash[:danger] = "Input right attributes for date"
+            render :new
+        elsif @course.save
             flash[:success] = "Course created successfully!"
             redirect_to course_path(@course.id)
         else
@@ -37,7 +43,7 @@ class CoursesController < ApplicationController
     end
 
     def update
-        if @course.update course_params
+        if @course.update course_params 
             flash[:success] = 'Course has been updated!'
             redirect_to course_path(@course.id)
         else
@@ -62,7 +68,7 @@ class CoursesController < ApplicationController
     private
 
     def course_params
-        params.require(:course).permit(:name, :category, :course_code, :description, :seats, :start_date, :end_date, :time)
+        params.require(:course).permit(:name, :category, :course_code, :description, :seats, :start_date, :end_date, :time_start, :time_end)
     end
     
     def find_course_id

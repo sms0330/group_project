@@ -15,16 +15,19 @@
         <%= c.text_field :description %> <br> <br>
     
         <%= c.label :seats %> <br>
-        <%= c.text_field :seats %> <br>
+        <%= c.text_field :seats %> <br> <br>
     
         <%= c.label :start_date %> <br>
-        <%= c.date_field :start_date %> <br>
+        <%= c.date_field :start_date %> <br> <br>
     
         <%= c.label :end_date %> <br>
         <%= c.date_field :end_date %> <br> <br>
 
-        <%= c.label :time %>
-        <%= c.time_field :time %> <br> <br>
+        <%= c.label :time_start %>
+        <%= c.time_field :time_start %> <br> <br>
+
+        <%= c.label :time_end %>
+        <%= c.time_field :time_end %> <br> <br>
     
     <%= c.submit "Create Course", :class => "btn btn-danger" %>
     <% end %>
