@@ -15,7 +15,8 @@ class UsersController < ApplicationController
 
       def dashboard
             if current_user.is_admin?
-              @user_number = User.all.count
+              @teacher_number = User.where(is_teacher: 'true').all.count
+              @student_number = User.where(is_teacher: 'false').all.count
               @facility_number = Facility.all.count
               @course_number = Course.all.count
             else
