@@ -7,7 +7,7 @@ class CoursesController < ApplicationController
     end
 
     def index 
-        @courses = Course.all.order(:category)
+        @courses = Course.all.order(created_at: :desc)
     end
 
     def show
@@ -56,7 +56,7 @@ class CoursesController < ApplicationController
     end
 
     def created
-        @courses = current_user.courses
+        @courses = current_user.courses.order(created_at: :desc)
     end
 
     private

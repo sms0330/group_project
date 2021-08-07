@@ -1,7 +1,7 @@
 class FacilitiesController < ApplicationController
     before_action :authenticate_user!, except: [:index]
     def index
-        @facilities = Facility.all
+        @facilities = Facility.all.order(created_at: :desc)
    end
 
    def show
