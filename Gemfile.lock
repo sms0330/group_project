@@ -186,10 +186,10 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+  x86_64-darwin-19
   x86_64-linux
 
 DEPENDENCIES
-  actiontext
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.4)
   bootstrap (~> 5.0.0.beta2)
@@ -198,12 +198,10 @@ DEPENDENCIES
   faker
   jbuilder (~> 2.7)
   listen (~> 3.3)
-  loofah
   nokogiri
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 6.1.4)
-  rails-dom-testing
   sass-rails (>= 6)
   spring
   turbolinks (~> 5)

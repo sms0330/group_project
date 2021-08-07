@@ -4,10 +4,10 @@ class EnrollsController < ApplicationController
             @enroll = Enroll.new(course: @course, user: current_user)
             # Course.seats = Course.seats - 1
             if @enroll.save
-                  flash[:notice] = "Enrolled in Course"
+                  flash[:success] = "Enrolled in Course"
                   redirect_to courses_path
             else
-                  flash[:alert] = @enroll.errors.full_messages.join(',')
+                  flash[:danger] = @enroll.errors.full_messages.join(',')
             end
       end
       
@@ -20,11 +20,11 @@ class EnrollsController < ApplicationController
             # Course.seats = Course.seats + 1
             #!can? and cannot? is the same thing
             if cannot?(:destroy, @enroll)
-                  flash[:alert] = "You cannot destroy a enroll you don't own"
+                  flash[:danger] = "You cannot destroy a enroll you don't own"
             elsif @enroll.destroy
-                  flash[:notice] = "Course unenrolled"
+                  flash[:success] = "Course unenrolled"
             else
-                  flash[:alert] = "Couldn't unenroll form the course"
+                  flash[:danger] = "Couldn't unenroll form the course"
             end
             redirect_to request.referrer
       end
