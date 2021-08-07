@@ -28,14 +28,17 @@
     
             <small> Teacher info: <b><%= @course.user&.full_name || "Deleted" %></b></small> <br>
             <hr>
+
             <% @enroll = @course.enrolls.find_by(user: current_user) %>
-                <% if current_user && current_user.is_teacher %>
+                <% if current_user && current_user.is_teacher && current_user == @course.user %>
                     <% if @enroll.present? %>
                         <%= button_to 'Unenroll', enroll_path(@enroll), method: :delete %>
                     <% else %> 
                         <%= button_to 'Enroll', course_enrolls_path(@course), method: :post %>
                     <% end %>
                 <% end %>
+
+                <br/>
             
                 <% if can? :crud, @course %>
                     <%= link_to "Edit" , edit_course_path(@course), class: "btn btn-outline-primary" %>
