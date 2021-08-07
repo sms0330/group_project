@@ -12,6 +12,7 @@ class CoursesController < ApplicationController
 
     def show
         @courses = Course.all.order(:category)
+        @total_enrolls = Enroll.unscope(:order).count
     end
 
     def new
@@ -68,4 +69,5 @@ class CoursesController < ApplicationController
     def authorize_user!
         redirect_to root_path, alert: 'Not authorized! please try again' unless can?(:crud, @course)
     end
+
 end
