@@ -1,28 +1,29 @@
 <div class="container" style="padding-top:15px">
-<% if current_user && current_user.is_teacher %>
+    <% if current_user && current_user.is_teacher %>
     <%= link_to "New course", new_course_path, :class => "btn btn-danger new-course-btn" %>
-<% end %>
+    <% end %>
 
-<hr style="color: white">
-<% @courses.each do |course| %>
+    <hr style="color: white">
+    <% @courses.each do |course| %>
 
-    <div class="courses-index">
-        <div style="padding:15px">
-            <h2> <%= link_to course.name, course_path(course) %> </h2> 
+        <div class="courses-index">
+            <div>
+                <h2> <%= link_to course.name, course_path(course) %> </h2> 
+            </div>
+
+            <% @enroll = course.enrolls.find_by(user: current_user) %>
+            <div>
+                <small>
+                <% if current_user && current_user.is_teacher == false %>
+                    <% if @enroll.present? %>
+                        <%= button_to 'Enrolled', enroll_path(@enroll), method: :delete, :class => "btn btn-danger" %>
+                    <% else %> 
+                        <%= button_to 'Enroll', course_enrolls_path(course), method: :post, :class => "btn btn-danger" %>
+                    <% end %>
+                <% end %>
+                </small>
+            </div>
+            <hr>
         </div>
-    
-        <% @enroll = course.enrolls.find_by(user: current_user) %>
-        <small>
-        <% if current_user && current_user.is_teacher %>
-            <% if @enroll.present? %>
-
-                <%= button_to 'Enrolled', enroll_path(@enroll), method: :delete, :class => "btn btn-danger" %>
-            <% else %> 
-                <%= button_to 'Enroll', course_enrolls_path(course), method: :post, :class => "btn btn-danger" %>
-            <% end %>
-        <% end %>
-        </small>
-        <hr>
-<% end %>
-    </div>
+    <% end %>
 </div>

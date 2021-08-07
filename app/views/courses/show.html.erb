@@ -5,13 +5,13 @@
             <hr>
             
     
-            <h3> Course code: </h3>
+            <p> Course code: <b><%= @course.course_code %> </b></p>
     
             <p> About: <%= @course.description %></p>
             <hr>
             
     
-            <p> Number of People Enrolled: </p>
+            <p> Number of People Enrolled: <b><%= @course.enrolls.count %> </b></p>
             <p> Seats available: <b><%= @course.seats %></b></p>
             <hr>
             
@@ -20,21 +20,25 @@
             <b><%= @course.time %></b> <br>
             <hr>
 
-            <small> Course start and end date:</small> <br>
-            <b><%= @course.start_date %> - <%= @course.end_date %></b> <br>
+            <small> Course start date :</small> <br>
+            <b><%= @course.start_date %></b> <br>
+            <small> Course start date :</small> <br>
+            <b><%= @course.end_date %></b> <br>
             <hr>
     
-            Created by: <b><%= @course.user&.full_name || "Deleted" %></b> <br>
-            <small> Teacher info: </small> <br>
+            <small> Teacher info: <b><%= @course.user&.full_name || "Deleted" %></b></small> <br>
             <hr>
+
             <% @enroll = @course.enrolls.find_by(user: current_user) %>
-                <% if current_user && current_user.is_teacher %>
+                <% if current_user && current_user.is_teacher && current_user == @course.user %>
                     <% if @enroll.present? %>
                         <%= button_to 'Unenroll', enroll_path(@enroll), method: :delete %>
                     <% else %> 
                         <%= button_to 'Enroll', course_enrolls_path(@course), method: :post %>
                     <% end %>
                 <% end %>
+
+                <br/>
             
                 <% if can? :crud, @course %>
                     <%= link_to "Edit" , edit_course_path(@course), class: "btn btn-outline-primary" %>

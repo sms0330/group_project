@@ -10,6 +10,7 @@ class EnrollsController < ApplicationController
                   flash[:alert] = @enroll.errors.full_messages.join(',')
             end
       end
+      
       def edit
             @course = Course.find params[:course_id]
       end
