@@ -10,8 +10,13 @@ class CoursesController < ApplicationController
         @courses = Course.all.order(:category)
     end
 
+    def show
+        @courses = Course.all.order(:category)
 
-    
+        @total_enrolls = Enroll.where(course_id: find_course_id).count
+        @total_seats = @course.seats
+        @seats_left = @total_seats - @total_enrolls
+    end
 
     def new
         @course = Course.new
