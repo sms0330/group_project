@@ -10,10 +10,8 @@ class CoursesController < ApplicationController
         @courses = Course.all.order(:category)
     end
 
-    def show
-        @courses = Course.all.order(:category)
-        @total_enrolls = Enroll.unscope(:order).count
-    end
+
+    
 
     def new
         @course = Course.new
