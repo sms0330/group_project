@@ -8,8 +8,7 @@
 
         <small> Booked: <%= @facility.book %> </small> <br>
         <hr>
-
-        <% if can? :crud, @facility %>
+        <% if current_user.is_admin || current_user.is_teacher %>
             <%= link_to 'Edit' , edit_facility_path, :class => "btn btn-danger" %>
         <% end %>
         <% if can? :crud, @facility %>

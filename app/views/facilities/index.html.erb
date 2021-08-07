@@ -1,14 +1,15 @@
+<div class="container" style="padding-top:15px">
 <% if current_user && current_user.is_admin %>
-    <%= link_to "New facility", new_facility_path %>
+    <%= link_to "New facility", new_facility_path, :class => "btn btn-danger new-facility-btn" %>
 <% end %>
 
-<hr style="color: rgb(110, 95, 95)">
 <% @facilities.each do |facility| %>
 
 
-    <div>
+    <div style="padding:15px">
     <h2> <%= link_to facility.name, facility_path(facility) %> </h2> 
     </div>
     <hr>
 
 <% end %>
+</div>
